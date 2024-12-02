@@ -1,0 +1,22 @@
+# meal_planner.py
+
+import random
+
+def random_meal_plan(meals, days):
+    return random.sample(meals, days)
+
+def generate_shopping_list(meal_plan, ingredients):
+    shopping_list = {item for meal in meal_plan for item in ingredients.get(meal, [])}
+    return shopping_list
+
+# Sample usage
+meals = ["Pasta", "Pizza", "Salad", "Soup"]
+ingredients = {
+    "Pasta": ["pasta", "sauce"],
+    "Pizza": ["dough", "cheese"],
+    "Salad": ["lettuce", "tomatoes"],
+    "Soup": ["broth", "vegetables"]
+}
+meal_plan = random_meal_plan(meals, 3)
+print("Meal Plan:", meal_plan)
+print("Shopping List:", generate_shopping_list(meal_plan, ingredients))
